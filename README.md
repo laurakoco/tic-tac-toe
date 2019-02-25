@@ -1,30 +1,47 @@
 # Tic-Tac-Toe with AI
 
-The objective of this project is to create a Tic-Tac-Toe computer game with an Artificial Intelligence opponent.
+A Tic-Tac-Toe GUI application with an AI opponent.
 
 ## Background
 
 Tic-Tac-Toe is a two-player, turn-based game. The actions and win conditions are straightforward and simple to understand. The number of actions in each state is limited, and the state of the game is easily represented.
 
-Two players (each represented by X and O) take turns marking the spaces on a 3x3 grid. The player who succeeds in placing three of their markers in a horizontal, vertical, or diagonal row wins the game.
+Two players (each represented by *X* and *O*) take turns marking the spaces on a 3x3 grid. The player who succeeds in placing three of their markers in a horizontal, vertical, or diagonal row wins the game [1].
 
 The possible outcome for a player is a win, loss or draw. A win for one player implies a loss for the other; for this reason, Tic-Tac-Toe is a zero-sum game. 
 
-Each player’s goal state is a win. As such, the player’s goals are competing, which leads us to an adversarial search problem.  
+Each player's goal state is a win. As such, the player's goals are competing, which leads us to an adversarial search problem.  
 
 ## Motivation
 
-This project allows me to explore AI search algorithms:
-* Optimal search
+This project explores tradeoffs between AI search algorithms:
+* Optimal decisions
 	* Minimax
-	* Alpha-Beta Pruning
-* Imperfect real-time search
-	* Search with cutoff (heuristic evaluation)
+	* Alpha-beta pruning
+* Imperfect real-time decisions
+	* Alpha-beta with cutoff (heuristic evaluation)
  
 ## Built With
 
-* Python
-* Pygame
+* Python 2.7
+* [Pygame](https://www.pygame.org/)
+
+## Usage
+
+#+BEGIN_SRC
+$ python run_tic_tac_toe.py
+#+END_SRC
+
+This will launch a pygame window.
+
+<img src="images/Board_1.png" height="200"> <img src="images/Board_2.png" height="200">
+
+The terminal will prompt the choice of AI:
+
+1. Random
+2. Minimax
+3. Alpha-beta
+4. Alpha-beta with cutoff
 
 ## Author
 
@@ -37,4 +54,6 @@ This project allows me to explore AI search algorithms:
 
 ## References
 
-[1] Russell, Stuart J., and Peter Norvig. Artificial Intelligence: a Modern Approach. Pearson, 2010.
+[1] [https://en.wikipedia.org/wiki/Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
+
+[2] Russell, Stuart J., and Peter Norvig. Artificial Intelligence: a Modern Approach. Pearson, 2010.
