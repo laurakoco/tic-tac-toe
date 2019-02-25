@@ -50,7 +50,10 @@ Choose AI. [1/2/3/4]
 2. Minimax
 3. Alpha-beta
 4. Alpha-beta with Cutoff
+>
 ```
+
+Once the AI is chosen, it's off the races. Place your marker (*X*) and the AI will place its marker (*O*) until a terminal state is found.
 
 ## Author
 
