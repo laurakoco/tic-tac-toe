@@ -40,7 +40,7 @@ python run_tic_tac_toe.py
 
 This will launch a pygame window
 
-<img src="images/Board_1.png" height="400"> <img src="images/Board_2.png" height="400">
+<img src="images/Board_1.png" height="400">
 
 The terminal will prompt the choice of AI
 
@@ -54,6 +54,15 @@ Choose AI. [1/2/3/4]
 ```
 
 Once the AI is chosen, it's off the races. Place your marker (*X*) and the AI will place its marker (*O*) until a terminal state is found.
+
+<img src="images/Board_2.png" height="400">
+
+When the game is finished, you can then choose to play again and lose to your hearts desire
+
+```
+Play again? [Y/N]
+> 
+```
 
 ## Author
 
