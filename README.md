@@ -28,9 +28,9 @@ This project explores tradeoffs between AI search algorithms:
 
 ## Usage
 
-'''python
+```python
 python run_tic_tac_toe.py
-'''
+```
 
 This will launch a pygame window.
 
