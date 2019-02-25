@@ -21,9 +21,9 @@ This project implements different AI search algorithms:
 * Imperfect real-time decision
 	* Alpha-beta pruning with cutoff (evaluation function)
 
-The minimax algorithm generates the entire game search space and yields a perfect decision for the AI. Thus, the AI using minimax is unbeatable. The alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yeilds an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
+The minimax algorithm generates the entire game search space and yields a perfect decision for the AI. Thus, the AI using minimax is unbeatable. The alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yields an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
     
-Because the tic-tac-toe solution space is relatively small (9! = 362,880), it is possible to employ an optimal decision. For more complicated games searching the whole tree is not possible. An evaluation function can be implemented to approximate the best decision for the AI.
+Because the Tic-Tac-Toe solution space is relatively small (9! = 362,880), it is possible to employ an optimal decision. For more complicated games searching the whole tree is not possible. An evaluation function can be implemented to approximate the best decision for the AI.
     
 This project highlights the tradeoffs in time complexity and space complexity between optimal and imperfect AI search algorithms.
  
@@ -35,7 +35,7 @@ This project highlights the tradeoffs in time complexity and space complexity be
 ## Usage
 
 ```python
-$ python run_tic_tac_toe.py
+python run_tic_tac_toe.py
 ```
 
 This will launch a pygame window
