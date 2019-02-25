@@ -28,13 +28,13 @@ This project explores tradeoffs between AI search algorithms:
 
 ## Usage
 
-#+BEGIN_SRC
-$ python run_tic_tac_toe.py
-#+END_SRC
+'''python
+python run_tic_tac_toe.py
+'''
 
 This will launch a pygame window.
 
-<img src="images/Board_1.png" height="200"> <img src="images/Board_2.png" height="200">
+<img src="images/Board_1.png" height="400"> <img src="images/Board_2.png" height="400">
 
 The terminal will prompt the choice of AI:
 
