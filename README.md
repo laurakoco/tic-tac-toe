@@ -15,10 +15,10 @@ Each player's goal state is a win. As such, the player's goals are competing, wh
 ## Motivation
 
 This project implements different AI search algorithms:
-* Optimal decisions
+* Optimal decision
 	* Minimax
 	* Alpha-beta pruning
-* Imperfect real-time decisions
+* Imperfect real-time decision
 	* Alpha-beta pruning with cutoff (evaluation function)
 
 The minimax algorithm generates the entire game search space and yields a perfect decision for the AI. Thus, the AI using minimax is unbeatable. The alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yeilds an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
