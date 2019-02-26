@@ -14,7 +14,7 @@ Each player's goal state is a win. As such, the player's goals are competing, wh
 
 ## Motivation
 
-This project implements different AI search algorithms:
+This project implements an AI opponent which employs different AI search algorithms:
 * Optimal decision
 	* Minimax
 	* Alpha-beta pruning
@@ -34,8 +34,8 @@ This project highlights the tradeoffs in time complexity and space complexity be
 
 ## Usage
 
-```python
-python run_tic_tac_toe.py
+```
+$ python run_tic_tac_toe.py
 ```
 
 This will launch a pygame window
