@@ -16,16 +16,52 @@ Each player's goal state is a win. As such, the player's goals are competing, wh
 
 This project implements an AI opponent which employs different AI search algorithms:
 * Optimal decision
-* Minimax
-* Alpha-beta pruning
-* Imperfect real-time decision
+** Minimax
+** Alpha-beta pruning
+** Imperfect real-time decision
 * Alpha-beta pruning with cutoff (evaluation function)
 
-The minimax algorithm generates the entire game search space and yields a perfect decision for the AI. Thus, the AI using minimax is unbeatable. The alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yields an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
+### Minimax
 
-Because the Tic-Tac-Toe solution space is relatively small (9! = 362,880), it is possible to employ an optimal decision. For more complicated games searching the whole tree is not possible. An evaluation function can be implemented to approximate the best decision for the AI.
+The minimax algorithm searches the entire game search space and yields a perfect decision for the AI. Thus, the AI using minimax is unbeatable.
+
+Minimax searches until a terminal state is found. When a terminal state is found, minimax returns the utility of that state {1, 0, -1}. Let's assume I am player X. I want to max(X) while min(O).
+
+<img src="images/Minimax.png" height="600">
+
+### Alpha-Beta
+
+The alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yields an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
+
+### Alpha-Beta with Cutoff
+
+Because the Tic-Tac-Toe solution space is relatively small (9! = 362,880), it is possible to employ an optimal decision. For more complicated games searching the whole tree is not possible (such as Chess). An evaluation function can be implemented to approximate the best decision for the AI.
+
+In my application, I stop the alpha-beta search at a depth of 3 and call the following evaluation function, f(n), which I made up:
+
+Look at all possible move combinations for X (and then O) for the next two moves:
+
+f(n) = 1, number wins O > number wins X
+f(n) = 0, number wins O = number wins X
+f(n) = -1, number wins X > number wins O
+
+This actually performs very well. While it is not unbeatable, it approximates good AI at the cost of time.
+
+### Tradeoffs
 
 This project highlights the tradeoffs in time complexity and space complexity between optimal and imperfect AI search algorithms.
+
+The time for the AI to returns its best, first move is shown below according to the search algorithm.
+
+| Search Algorithm       | Time to Decision [s] |
+|------------------------|----------------------|
+| Random                 | 0.017685             |
+| Minimax                | 0.495434             |
+| Alpha-Beta             | 0.049923             |
+| Alpha-Beta with Cutoff | 0.022828             |
+
+
+Minimax takes nearly half a second to place its first move! Alpha-beta shaved this number down by a factor of 10. Alpha-beta with cutoff does even better.
 
 ## Built With
 
