@@ -14,19 +14,56 @@ Each player's goal state is a win. As such, the player's goals are competing, wh
 
 ## Motivation
 
-This project implements different AI search algorithms:
-* Optimal decisions
-	* Minimax
-	* Alpha-beta pruning
-* Imperfect real-time decisions
-	* Alpha-beta with cutoff (heuristic evaluation)
-    
-    The minimax algorithm generates the entire game search space and yields a perfect decision for the AI. Thus, the AI using minimax is unbeatable. The alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yeilds an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
-    
-    Because the tic-tac-toe solution space is relatively small (9! = 362,880), it is possible to employ an optimal decision. For more complicated games searching the whole tree is not possible. An evaluation function can be implemented to approximate the best decision for the AI.
-    
- This project highlights the tradeoffs in time complexity and space complexity between optimal and imperfect AI search algorithms.
- 
+This project implements AI search algorithms:
+* Optimal decision
+* Minimax
+* Alpha-beta pruning
+* Imperfect real-time decision
+* Alpha-beta pruning with cutoff (evaluation function)
+
+### Minimax
+
+The minimax algorithm searches the entire game tree and yields a perfect decision for the AI. When a terminal state is found, minimax returns the utility value of the terminal state {1, 0, -1}. Let's assume we are player X. We want to max(X) and min(O).
+
+<img src="images/Minimax.png" height="400">
+
+### Alpha-Beta
+
+Alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yields an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
+
+### Alpha-Beta with Cutoff/Evaluation Function
+
+Because the Tic-Tac-Toe solution space is relatively small (9! = 362,880), it is possible to employ an optimal decision. For more complicated games searching the whole tree is not possible. An evaluation function can be implemented to **estimate** the best decision for the AI.
+
+In my application, I cutoff the alpha-beta search at a depth of 3 and call an evaluation function to return the estimated utility of the state.
+
+A simple evaluation function for Tic-Tac-Toe may be defined below.
+
+Look ahead 2 moves.
+
+f(n) = 1, if number wins for o > number wins for x
+f(n) = 0, if number wins for x = number wins for o
+f(n) = -1, if number wins for x > number wins for o
+
+This evaluation actually performs very well. While it is not unbeatable, it offers a good approximation of the state's utility in less time.
+
+### Tradeoffs
+
+This project highlights the tradeoffs in time complexity and space complexity between optimal and imperfect AI search algorithms.
+
+Run in on my Macbook Pro, here are the difference in returning the best, first move between the different search algorithms:
+
+| Search Algorithm       | Time to Decision [s] |
+|------------------------|----------------------|
+| Random                 | 0.017685             |
+| Minimax                | 0.495434             |
+| Alpha-Beta             | 0.049923             |
+| Alpha-Beta with Cutoff | 0.022828             |
+
+Minimax takes nearly half a second to returns it's first move! Alpha-beta decreases this by a factor of 10. Then Alpha-beta with cutoff approaches the time it takes to place the AI randomly. Very cool!
+
+## Design
+
 ## Built With
 
 * Python 2.7
@@ -34,20 +71,35 @@ This project implements different AI search algorithms:
 
 ## Usage
 
-```python
-python run_tic_tac_toe.py
+```
+$ python run_tic_tac_toe.py
 ```
 
-This will launch a pygame window.
+This will launch a pygame window
 
-<img src="images/Board_1.png" height="400"> <img src="images/Board_2.png" height="400">
+<img src="images/Board_1.png" height="400">
 
-The terminal will prompt the choice of AI:
+The terminal will prompt the choice of AI
 
+```
+Choose AI. [1/2/3/4]
 1. Random
 2. Minimax
 3. Alpha-beta
-4. Alpha-beta with cutoff
+4. Alpha-beta with Cutoff
+>
+```
+
+Once the AI is chosen, it's off the races. Place your marker (*X*) and the AI will place its marker (*O*) until a terminal state is found.
+
+<img src="images/Board_2.png" height="400">
+
+When the game is finished, you can then choose to play again and lose to your hearts desire
+
+```
+Play again? [Y/N]
+>
+```
 
 ## Author
 

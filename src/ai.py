@@ -78,6 +78,7 @@ def alphabeta(state, alpha, beta, player):
                 break
     return best
 
+# return best ai position via full alpha-beta search with cutoff
 def alphabeta_cutoff(state, alpha, beta, depth, player):
 
     if player == "O":
@@ -93,8 +94,9 @@ def alphabeta_cutoff(state, alpha, beta, depth, player):
         return [-1, 10]
     if len(empty_regions) == 0:
         return [-1, 0]
-    if depth == 4:
-        result = alphabeta_eval(state)
+    # cutoff at depth of 3 and evaluate board state
+    if depth == 3:
+        result = alphabeta_eval(state) # call evaluation function
         return [-1, result]
 
     for region in empty_regions:
@@ -116,12 +118,16 @@ def alphabeta_cutoff(state, alpha, beta, depth, player):
                 break
     return best
 
+# evaluation function
+# look ahead two moves
+# if number wins for x > o -> -10
+# if number wins for o > x -> 10
+# if number wins for x = o -> 0
 def alphabeta_eval(state):
-
-    # look ahead 2 moves
+    
     empty_regions = find_empty_regions(state)
-
-    # find # of 3 possible wins in 2 moves for o
+    
+    # find number of possible wins in next 2 moves for o
     score_o = 0
     player = "O"
     for i in empty_regions:
@@ -134,7 +140,7 @@ def alphabeta_eval(state):
             state[int(j)] = str(j)
         state[int(i)] = str(i)
 
-    # find # of possible wins in 2 moves for x
+    # find number of possible wins in next 2 moves for x
     score_x = 0
     player = "X"
     for i in empty_regions:
@@ -146,11 +152,6 @@ def alphabeta_eval(state):
                 score_x = score_x + 1
             state[int(j)] = str(j)
         state[int(i)] = str(i)
-
-    # eval score_o - score_x
-    # if positive, score = 10
-    # if negative, score = -10
-    # if zero, score = 0
 
     if score_o > score_x:
         score = 10
@@ -180,6 +181,7 @@ def terminal_test_ai(state, player):
 
         return False
 
+# check for three in a row for evaluation function
 def three_in_a_row(state, player):
 
     if (state[0] == player and state[1] == player and state[2] == player) or \
