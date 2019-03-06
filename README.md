@@ -4,9 +4,7 @@ A Tic-Tac-Toe GUI application with an AI opponent.
 
 ## Background
 
-Tic-Tac-Toe is a two-player, turn-based game. The actions and win conditions are straightforward and simple to understand. The number of actions in each state is limited, and the state of the game is easily represented.
-
-Two players (each represented by *X* and *O*) take turns marking the spaces on a 3x3 grid. The player who succeeds in placing three of their markers in a horizontal, vertical, or diagonal row wins the game [1].
+Tic-Tac-Toe is a two-player, turn-based game. The actions and win conditions are straightforward and simple to understand. Two players (each represented by *X* and *O*) take turns marking the spaces on a 3x3 grid. The player who succeeds in placing three of their markers in a horizontal, vertical, or diagonal row wins the game [1].
 
 The possible outcome for a player is a win, loss or draw. A win for one player implies a loss for the other; for this reason, Tic-Tac-Toe is a **zero-sum game**.
 
@@ -14,7 +12,7 @@ Each player's goal state is a win. As such, the player's goals are competing, wh
 
 ## Motivation
 
-This project implements an AI opponent which employs different AI search algorithms:
+This project implements different AI search algorithms:
 * Optimal decision
     * Minimax
     * Alpha-beta pruning
@@ -23,11 +21,9 @@ This project implements an AI opponent which employs different AI search algorit
 
 ### Minimax
 
-The minimax algorithm searches the entire game search space and yields a perfect decision for the AI. Thus, the AI using minimax is unbeatable.
+The minimax algorithm searches the entire game tree and yields a perfect decision for the AI; minimax is unbeatable.
 
-Minimax searches until a terminal state is found. When a terminal state is found, minimax returns the utility of that state {1, 0, -1}. Let's assume I am player X. I want to max(X) while min(O).
-
-<img src="images/Minimax.png" width="600">
+Minimax searches until a terminal state is found. When a terminal state is found, minimax returns the utility of that state {1, 0, -1}. Minimax maximizes the main player's utility while minimizing the utility of the opponent.
 
 ### Alpha-Beta
 
@@ -39,13 +35,13 @@ Because the Tic-Tac-Toe solution space is relatively small (9! = 362,880), it is
 
 In my application, I stop the alpha-beta search at a depth of 3 and call the following evaluation function, f(n), which I made up:
 
-Look at all possible move combinations for each player for the next two moves:
+Look at all move combinations for each player in the next two moves:
 
-f(n) = 1, number wins O > number wins X
+f(n) = 1, # wins O > # wins X
 
-f(n) = 0, number wins O = number wins X
+f(n) = 0, # wins O = # wins X
 
-f(n) = -1, number wins X > number wins O
+f(n) = -1, # wins X > # wins O
 
 This evaluation function actually performs very well. While it is not unbeatable, it approximates an intelligent AI in less time.
 
