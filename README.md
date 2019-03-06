@@ -1,4 +1,4 @@
-# Tic-Tac-Toe with AI
+# Tic-Tac-Toe GUI with AI
 
 A Tic-Tac-Toe GUI application with an AI opponent.
 
