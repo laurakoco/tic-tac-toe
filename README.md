@@ -10,7 +10,12 @@ The possible outcome for a player is a win, loss or draw. A win for one player i
 
 Each player's goal state is a win. As such, the player's goals are competing, which leads to an **adversarial search** problem.
 
-## Motivation
+## Built With
+
+* Python 2.7
+* [Pygame](https://www.pygame.org/)
+
+## Design
 
 This project implements different AI search algorithms:
 * Optimal decision
@@ -60,11 +65,6 @@ The time for the AI to returns its best, first move is shown below according to 
 
 
 Minimax takes nearly half a second to place its first move! Alpha-beta shaves this number down by a factor of 10. Alpha-beta with cutoff does even better.
-
-## Built With
-
-* Python 2.7
-* [Pygame](https://www.pygame.org/)
 
 ## Usage
 
