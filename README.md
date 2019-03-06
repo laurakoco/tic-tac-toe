@@ -1,4 +1,4 @@
-# Tic-Tac-Toe GUI with AI
+# Tic-Tac-Toe with AI
 
 A Tic-Tac-Toe GUI application with an AI opponent.
 
@@ -16,10 +16,10 @@ Each player's goal state is a win. As such, the player's goals are competing, wh
 
 This project implements an AI opponent which employs different AI search algorithms:
 * Optimal decision
-** Minimax
-** Alpha-beta pruning
-** Imperfect real-time decision
-* Alpha-beta pruning with cutoff (evaluation function)
+    * Minimax
+    * Alpha-beta pruning
+* Imperfect real-time decision
+    * Alpha-beta pruning with cutoff (evaluation function)
 
 ### Minimax
 
@@ -27,11 +27,11 @@ The minimax algorithm searches the entire game search space and yields a perfect
 
 Minimax searches until a terminal state is found. When a terminal state is found, minimax returns the utility of that state {1, 0, -1}. Let's assume I am player X. I want to max(X) while min(O).
 
-<img src="images/Minimax.png" height="600">
+<img src="images/Minimax.png" width="600">
 
 ### Alpha-Beta
 
-The alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yields an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
+Alpha-beta prunes prunes away large and unecessary parts of the minimax game tree, so it too yields an optimal decision. Both minimax and alpha-beta pruning require searching all the way to the terminal states (for at least one portion of the tree).
 
 ### Alpha-Beta with Cutoff
 
@@ -39,13 +39,15 @@ Because the Tic-Tac-Toe solution space is relatively small (9! = 362,880), it is
 
 In my application, I stop the alpha-beta search at a depth of 3 and call the following evaluation function, f(n), which I made up:
 
-Look at all possible move combinations for X (and then O) for the next two moves:
+Look at all possible move combinations for each player for the next two moves:
 
 f(n) = 1, number wins O > number wins X
+
 f(n) = 0, number wins O = number wins X
+
 f(n) = -1, number wins X > number wins O
 
-This actually performs very well. While it is not unbeatable, it approximates good AI at the cost of time.
+This evaluation function actually performs very well. While it is not unbeatable, it approximates an intelligent AI in less time.
 
 ### Tradeoffs
 
@@ -61,7 +63,7 @@ The time for the AI to returns its best, first move is shown below according to 
 | Alpha-Beta with Cutoff | 0.022828             |
 
 
-Minimax takes nearly half a second to place its first move! Alpha-beta shaved this number down by a factor of 10. Alpha-beta with cutoff does even better.
+Minimax takes nearly half a second to place its first move! Alpha-beta shaves this number down by a factor of 10. Alpha-beta with cutoff does even better.
 
 ## Built With
 
