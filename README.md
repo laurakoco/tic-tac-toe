@@ -104,7 +104,7 @@ Play again? [Y/N]
 
 ## Acknowledgments
 
-* Boston University MET Master Science Computer Science Program
+* Boston University MET Master of Science Computer Science Program
 * MET CS 664 Artificial Intelligence
 
 ## References
