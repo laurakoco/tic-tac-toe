@@ -24,6 +24,12 @@ To run this application, you need to install Python3 and pygame. Assuming Python
 $ pip3 install pygame
 ```
 
+or
+
+```
+$ pip3 install -r requirements.txt
+```
+
 To execute the game then run:
 
 ```
@@ -31,26 +37,7 @@ $ cd path/to/tic-tac-toe-ai/src
 $ python3 run_tic_tac_toe.py
 ```
 
-Alternatively, you can create and launch a Python virtual enviornment. This requires you to have Python3 installed.
-
-To install virutalenv run:
-
-```
-$ pip3 install virtualenv
-```
-
-Navigate to the local folder where you've cloned or downloaded the application:
-
-```
-$ cd path/to/tic-tac-toe-ai/
-$ virtualenv venv
-$ source venv/bin/activate
-(venv) $ pip3 install -r requirements.txt
-(venv) $ cd src/
-(venv) $ python3 run_tic_tac_toe.py
-```
-
-This will launch a pygame window
+This will launch a pygame window.
 
 <img src="images/Board_1.png" height="400">
 
@@ -74,12 +61,6 @@ When the game is finished, you can then choose to play again.
 ```
 Play again? [Y/N]
 >
-```
-
-If you are using a virtual envionrment, deactivate when done.
-
-```
-$ deactivate
 ```
 
 ## Design
