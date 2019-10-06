@@ -12,17 +12,77 @@ Each player's goal state is a win. As such, the player's goals are competing, wh
 
 ## Built With
 
-* Python 2.7
-* [Pygame](https://www.pygame.org/)
+* Python 3.7
+* [Pygame](https://www.pygame.org/) 1.9.6
+
+
+## Usage
+
+To run this application, you need to install Python3 and pygame. When Python3 is installed, run:
+
+```
+$ pip3 install pygame
+```
+
+Alternatively, you can create and launch a Python virtual enviornment. This requires you to have Python3 installed.
+
+To install virutalenv run:
+
+```
+$ pip3 install virtualenv
+```
+
+Navigate to the local folder where you've cloned or downloaded the application:
+
+```
+$ cd path/to/tic-tac-toe-ai/
+$ virtualenv venv
+$ source venv/bin/activate
+(venv) $ pip3 install -r requirements.txt
+(venv) $ cd src/
+(venv) $ python3 run_tic_tac_toe.py
+```
+
+This will launch a pygame window
+
+<img src="images/Board_1.png" height="400">
+
+The terminal will prompt the choice of AI:
+
+```
+Choose AI. [1/2/3/4]
+1. Random
+2. Minimax
+3. Alpha-beta
+4. Alpha-beta with Cutoff
+>
+```
+
+Once the AI is chosen, it's off the races. Place your marker (*X*) and the AI will place its marker (*O*) until a terminal state is found.
+
+<img src="images/Board_2.png" height="400">
+
+When the game is finished, you can then choose to play again.
+
+```
+Play again? [Y/N]
+>
+```
+
+If you are using a virtual envionrment, deactivate when done.
+
+```
+$ deactivate
+```
 
 ## Design
 
 This project implements different AI search algorithms:
 * Optimal decision
-    * Minimax
-    * Alpha-beta pruning
+* Minimax
+* Alpha-beta pruning
 * Imperfect real-time decision
-    * Alpha-beta pruning with cutoff (evaluation function)
+* Alpha-beta pruning with cutoff (evaluation function)
 
 ### Minimax
 
@@ -65,38 +125,6 @@ The time for the AI to returns its best, first move is shown below according to 
 
 
 Minimax takes nearly half a second to place its first move! Alpha-beta shaves this number down by a factor of 10. Alpha-beta with cutoff does even better.
-
-## Usage
-
-```
-$ python run_tic_tac_toe.py
-```
-
-This will launch a pygame window
-
-<img src="images/Board_1.png" height="400">
-
-The terminal will prompt the choice of AI
-
-```
-Choose AI. [1/2/3/4]
-1. Random
-2. Minimax
-3. Alpha-beta
-4. Alpha-beta with Cutoff
->
-```
-
-Once the AI is chosen, it's off the races. Place your marker (*X*) and the AI will place its marker (*O*) until a terminal state is found.
-
-<img src="images/Board_2.png" height="400">
-
-When the game is finished, you can then choose to play again and lose to your hearts desire
-
-```
-Play again? [Y/N]
->
-```
 
 ## Author
 

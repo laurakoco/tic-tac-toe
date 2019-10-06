@@ -5,7 +5,7 @@ import pygame
 import sys
 from laura_tic_tac_toe import *
 from ai import *
-import time
+# import time
 
 pygame.init()
 
@@ -47,6 +47,7 @@ while True:
                     game_over = terminal_test(state, player) # check for terminal state
                     # if terminal state is found
                     if game_over:
+                        pygame.event.get()
                         terminal_state = play_again()
                         
                     # ai player goes
@@ -54,7 +55,7 @@ while True:
                     # if there are empty regions remaining
                     if len(empty_regions) != 0:
 
-                        start = time.clock()
+                        # start = time.clock()
 
                         # randomly place ai
                         if ai == 1:
@@ -81,13 +82,15 @@ while True:
                         place_on_grid(window, ai_region, player)  # place ai marker on window
                         state[ai_region] = player # update board state
 
-                        stop = time.clock()
-                        elapsed = stop - start
-                        print("AI time: " + str(elapsed))
+                        # stop = time.clock()
+                        # elapsed = stop - start
+                        # print("AI time: " + str(elapsed))
 
                         game_over = terminal_test(state,player) # check for terminal state
+
                         # terminal state is found
-                        if game_over:                            
+                        if game_over:
+                            pygame.event.get()
                             terminal_state = play_again()
 
     # repeat game robustness - handle Yes No Y N ... or pop up?

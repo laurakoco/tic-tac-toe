@@ -139,7 +139,7 @@ def terminal_test(state, player):
 def choose_ai():
     while True:
         sys.stdout.write("Choose AI. [1/2/3/4]\n1. Random\n2. Minimax\n3. Full Alpha-Beta\n4. Alpha-Beta with Cutoff\n> ")
-        answer = raw_input().lower()
+        answer = input().lower()
         if answer == "1":
             return 1
         elif answer == "2":
@@ -154,8 +154,9 @@ def choose_ai():
 # ask user if they'd like to play again
 def play_again():
     while True:
+        pygame.display.update()
         sys.stdout.write("Play again? [Y/N]\n> ")
-        answer = raw_input().lower()
+        answer = input().lower()
         if (answer == "y"):
             terminal_state = True
             return terminal_state
