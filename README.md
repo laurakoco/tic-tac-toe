@@ -18,10 +18,17 @@ Each player's goal state is a win. As such, the player's goals are competing, wh
 
 ## Usage
 
-To run this application, you need to install Python3 and pygame. When Python3 is installed, run:
+To run this application, you need to install Python3 and pygame. Assuming Python3 is installed, to install pygame run:
 
 ```
 $ pip3 install pygame
+```
+
+To execute the game then run:
+
+```
+$ cd path/to/tic-tac-toe-ai/src
+$ python3 run_tic_tac_toe.py
 ```
 
 Alternatively, you can create and launch a Python virtual enviornment. This requires you to have Python3 installed.
