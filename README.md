@@ -67,10 +67,10 @@ Play again? [Y/N]
 
 This project implements different AI search algorithms:
 * Optimal decision
-* Minimax
-* Alpha-beta pruning
+    * Minimax
+    * Alpha-beta pruning
 * Imperfect real-time decision
-* Alpha-beta pruning with cutoff (evaluation function)
+    * Alpha-beta pruning with cutoff (evaluation function)
 
 ### Minimax
 
